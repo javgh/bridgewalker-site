@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    Using Bitcoin, NFC and Bluetooth to make a mobile euro payment in 15 seconds &middot; 
+    Bridgewalker Blog
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/hyde.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/blog/public/favicon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/atom.xml">
+</head>
+
+
+  <body>
+
+    <header class="masthead">
+      <div class="masthead-inner">
+        <h1>Blog</h1>
+        <p class="lead">Bridgewalker is a euro-denominated wallet for the Bitcoin economy. Here I, Jan Vornberger, blog about its development. Fun stuff to do: <a href="https://www.bridgewalkerapp.com/">learn more</a> and <a href="https://twitter.com/bridgewalkerapp">follow me</a>.</p>
+
+        <div class="colophon">
+          <ul class="colophon-links">
+            <li>
+              <a href="/blog/index.html">All posts</a>
+            </li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+          </ul>
+          <p>&copy; 2013 Jan Vornberger</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="content container">
+      <div class="post">
+  <h1>Using Bitcoin, NFC and Bluetooth to make a mobile euro payment in 15 seconds</h1>
+  <span class="post-date">01 Jan 2014</span>
+  <p>Bridgewalker has always been about exploring the idea of using "Bitcoin, the
+network" solely as a payment mechanism, but avoiding "Bitcoin, the currency" and
+its volatility by exchanging in and out of local currencies before and after the
+payment takes place. Using Bitcoin in this way, it then becomes a technical
+solution similiar to the <a href="http://en.wikipedia.org/wiki/Automated_Clearing_House">ACH network</a>
+or credit card networks, in that it provides a payment network which allows the
+electronic transfer of funds denominated in fiat (e.g. euro or dollar). But a
+payment network which has no barrier of entry, as anyone can plug in, as long
+as they speak the Bitcoin protocol. This concept has also been described as
+Bitcoin being "money over IP" or an <a href="http://onbitcoin.com/2013/07/30/finding-business-model-opportunities-in-bitcoin-inside-bitcoins-nyc/">"IP address for
+money"</a>.</p>
+
+<h3>Point of sale demo</h3>
+
+<p>The following video is a technology demo of how Bitcoin might be used in this
+manner in a point of sale setting, where a customer wants to pay contactless
+with his smartphone. To set the stage: In this example the merchant is using a
+laptop to initiate the process. She enters the price of the product - let's say
+2 euros - and the software uses the current Bitcoin exchange rate to calculate a
+Bitcoin amount, which is then shown to the customer on an external screen
+together with payment instructions. The customer holds his phone close to the
+NFC pad and receives the payment details. In this case he uses the Bridgewalker
+app, where he maintains a euro balance, which can be converted to bitcoins for
+the purpose of transfer at a moment's notice. The app picks up the payment
+request and - after final confirmation by the user - sends out a Bitcoin
+transaction. To increase speed and especially reliability a copy of the Bitcoin
+transaction is also sent back to the merchant via Bluetooth. The payment is now
+complete (caveat: the risk of double spending - see discussion below). In the
+video the merchant simply receives the bitcoins via Bitcoin-Qt. But one could
+imagine to plug in a merchant solution like BitPay or Coinbase here, which would
+then convert back to euros to complete the cycle. Here is the video:</p>
+
+<div style="text-align:center">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/mguRpvf3aMc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<h3>Technical details</h3>
+
+<p>First off: If you do not care about all the back and forth with traditional
+currencies, then this solution can of course also be used in a Bitcoin-only
+manner. It is based on work that Andreas Schildbach already did for the Android
+Bitcoin wallet (great stuff - thanks!) and is fully compatible with that. So the
+Schildbach wallet will pick up the NFC payment request and also the transaction
+transfer over Bluetooth is compatible. The code for the point of sale terminal
+is open source and you can find it
+<a href="https://github.com/javgh/greenaddress-pos-tools">over on GitHub</a>. The
+repository also has some notes about the recommended NFC hardware.</p>
+
+<h3>Currency conversions and fees</h3>
+
+<p>All this currency conversion back and forth is terrible convoluted and must be
+pretty expensive, you might be thinking at this point. Why not just transfer
+euros directly, if that is the goal? To expand on what I wrote in the
+introduction: The problem with transferring euros electronically is the fact,
+that there is no such thing as a digital euro. You can only have digital IOUs
+for euros - that is promises from someone, that they will pay you a euro later -
+and you can then transfer those digital IOUs. That means you will always have to
+be very careful about whose IOUs you accept, so that you can be sure that you
+are getting paid in the end.</p>
+
+<p>Bitcoin, on the other hand, stands for itself. It is a digital commodity that
+commands a market price and it therefore does not matter from whom you are
+receiving those bitcoins. It is the digital equivalent of "cash is king".
+Building a payment network with Bitcoin at the core allows for a much more open
+approach where everyone is free to connect to and become a part of that network.</p>
+
+<p>To make it cost-competitive, the "on- and off-ramps" to the Bitcoin network, the
+exchanges, need to be efficient. That means low fees on one hand, and also tight
+spreads - the difference between the highest buy offer and the lowest sell offer
+- on the other hand. In the case of Bridgewalker, for example, this currently
+amounts to a fee of around 1.5 % for a "round trip". So sending out 100 EUR in
+the form of bitcoins and then depositing them again, will typically leave you
+with 98.50 EUR (although transfers between Bridgewalker users are internal and
+free, by the way). At the moment Bridgewalker uses Mt.Gox as its exchange
+platform. Then you have to factor in the cost for the user to get bitcoins in
+the first place, to fund his Bridgewalker account, and that might be another
+percent or two. On the merchant side very competitive pricing options are
+available from both BitPay and Coinbase. All in all, I think you can stay under
+3 % even today, to pick a number that is typical for credit card fees, and there
+is quite a bit of room to push this down further as Bitcoin exchanges mature.</p>
+
+<p>Lastly I want to point out, that Bridgewalker is just a technical prototype and
+I therefore opted to only allow funding of accounts via Bitcoin. This creates
+additional points of currency exchange, but frees me from interfacing with the
+traditional banking system and instead allows me to focus on experimenting with
+the user interface. An institution that would undertake a direct integration
+with, for example, the ACH network should be able to reduce fees even more.</p>
+
+<p>In fact, a highly upvoted <a href="http://www.reddit.com/r/Bitcoin/comments/1stdek/with_recent_news_that_coinbase_acquired_25m_in/">feature
+request</a>
+for Coinbase to implement a "buy-as-you-spend" feature would be essentially just
+that. It would allow a user to spend bitcoins via the Coinbase app and have it
+replenished by pulling fiat from their bank account. This is essentially just a
+mechanism to spend fiat from their bank account via Bitcoin, which brings us
+back to the idea of using Bitcoin solely as a payment mechanism.</p>
+
+<h3>Double spending</h3>
+
+<p>Discussing the topic of double spend risk management really requires a whole
+blog post or more like a series of them in itself, and this post is already
+getting too long. But just a few comments here: The common wisdom so far has
+been, that for small in person payments the risk of accepting zero-confirmation
+transactions is minimal.  I agree that this is probably true. Although it is
+only true, if the merchant receives the transaction via the Bitcoin network and
+therefore has some indication that it has been broadcasted widely.</p>
+
+<p>In this setting the merchant receives the transaction directly from the
+customer, which makes it much easier for the customer to trick the merchant, by
+sending a conflicting transaction simultaneously to the rest of the Bitcoin
+network. So this is still one of the pieces missing from this solution, before
+it is ready for real world usage. The merchant should wait a few extra seconds
+(unfortunately adding extra delay) and then check with a number of
+highly connected Bitcoin nodes whether there are any known double spends
+(feature request for Blockchain.info: return the double spend info that you are
+collecting already via your JSON api. It would be great if the data returned for
+a transaction would have an extra field called "known_double_spends" or
+"known_conflicts" which would be simply "true" or "false" or maybe a list of
+conflicting transaction ids). This would, I believe, be a reasonably secure
+heuristic for small amounts.</p>
+
+<p>In general though, receiving the transaction directly from the customer will be
+the only solution going forward. Relying on a gossip-style peer-to-peer network,
+as Bitcoin is, for timely delivery of transactions will simply fail too often
+(for some anecdotal evidence of this, see for example <a href="http://www.reddit.com/r/Bitcoin/comments/1ly1h3/bitcoin_is_too_slow_for_in_person_transactions/">this
+thread</a>).</p>
+
+<p>As an aside: The demo above employs <a href="https://en.bitcoin.it/wiki/Green_address">green
+addresses</a>. Bridgewalker transactions
+can be recognized by their use of coins from 1MAxx46Dp3tFw933PxPwEYYGCpxYda2pyH
+which is why the backend displays "Verified by Bridgewalker" after receiving the
+transaction. So in this case the merchant knows where to complain, if anything
+murky should happen with the transaction afterwards.</p>
+
+<p>Green addresses are a hack - I said as much, when I proposed them back in 2011 -
+and now that we have <a href="https://en.bitcoin.it/wiki/BIP_0070">BIP 70</a>, the payment
+protocol proposal, this would probably be a better outlet to integrate a similar
+mechanism.</p>
+
+<h3>Future work</h3>
+
+<p>All of this should probably be ported to use the payment protocol, which should
+allow to add some other niceties as well, like displaying some meta information
+about the payment directly on the client side (what is this for? who is
+requesting it? have they signed the request?). Then of course the mentioned
+double spend detection heuristic needs to be added. It would also be helpful to
+replace the use of Bitcoin-Qt with a more lightweight client, to be able to run
+the point of sale terminal on something like a Raspberry Pi.</p>
+
+<p><a href="https://github.com/javgh/greenaddress-pos-tools">The code</a> is open source -
+patches are always welcome! :-)</p>
+
+</div>
+
+<div class="pagination">
+    <a href="/blog/index.html" class="older">Back</a>
+</div>
+
+
+<div class="post">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'bridgewalkerblog';
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Comments require JavaScript - </noscript>
+    <a href="http://disqus.com" class="dsq-brlink">powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+    </div>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39518733-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>

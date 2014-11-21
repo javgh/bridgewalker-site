@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+    Bridgewalker Blog
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/hyde.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/blog/public/favicon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/atom.xml">
+</head>
+
+
+  <body>
+
+    <header class="masthead">
+      <div class="masthead-inner">
+        <h1>Blog</h1>
+        <p class="lead">Bridgewalker is a euro-denominated wallet for the Bitcoin economy. Here I, Jan Vornberger, blog about its development. Fun stuff to do: <a href="https://www.bridgewalkerapp.com/">learn more</a> and <a href="https://twitter.com/bridgewalkerapp">follow me</a>.</p>
+
+        <div class="colophon">
+          <ul class="colophon-links">
+            <li>
+              <a href="/blog/index.html">All posts</a>
+            </li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+          </ul>
+          <p>&copy; 2013 Jan Vornberger</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1>
+      <a href="/blog/2014/03/14/bridgewalker-shutdown/">
+        Mt.Gox fallout&#58; Bridgewalker is shutting down
+      </a>
+    </h1>
+
+    <span class="post-date">14 Mar 2014</span>
+
+    <p>It is with regret that I have to announce, that Bridgewalker is shutting down.
+Since it was using Mt.Gox as the backend exchange, it was directly affected by
+Mt.Gox imploding. But there were also a few other factors which played into this
+decision, which I detail below. Thanks to everyone who supported this project!</p>
+
+<p>All user funds will be returned in full. An update should be available shortly
+through Google Play which will allow you to submit a Bitcoin address, where you
+would like to have your funds sent. I will use
+<a href="https://bitcoinaverage.com/markets.htm#EUR">BitcoinAverage</a> to determine the
+exchange rate. Please allow a few days for your request to be processed. I will
+be returning user funds for at least the next 6 months, but would ask you to put
+in your request soon. Feel free to email me if you have any questions.</p>
+
+<p>"Why did you still use Mt.Gox? You should have seen that coming long ago!" True,
+and I did to some extend, which is why my losses are manageable. The main reason
+I never did the switch - and I contemplated it several times - was, that for all
+its shortcomings, Mt.Gox still was for a long time the only big exchange with a
+streaming data feed. And I considered it an important feature to keep track of
+the market very closely, to be able to safely provide competitive currency
+conversion services - a major cornerstone of the Bridgewalker architecture. So
+switching to a different exchange would have required quite a bit of extra work
+and a worse service level as a result. Not the most attractive value
+proposition, so I decided to instead work on new features and hope that Mt.Gox
+would get their act together. That optimism was unfortunately misplaced, but I
+am prepared to deal with the consequences. The losses that did occur I will
+replace out of my personal funds.</p>
+
+<p>But the Mt.Gox debacle is not the only reason for the shutdown. So far, I
+have not managed to gain the traction with Bridgewalker that I was hoping for.
+There are probably many reasons for that, among them certainly, that it is a
+tough sell to get people to entrust their funds with an unproven startup. And
+for good reasons! I was always looking for ways to get rid of the requirement of
+holding user funds, but have so far not found a practical and cost-competitive
+alternative.</p>
+
+<p>I still believe, that a service like Bridgewalker - providing a way of using
+Bitcoin only as a payment mechanism, without holding Bitcoin yourself - is
+something that has a target audience. As we go forward, we will hopefully be
+able to deploy interesting Bitcoin-based solutions. Solutions like tap-to-pay,
+metered billing (e.g. WiFi paid by the kb using micropayment channels) and making
+smallish payments right in the browser, to name just three things that I find
+very interesting. I am convinced that there will be a group of users, that will
+want to use these services, but would rather maintain their account in their
+trusted fiat currency of choice.</p>
+
+<p>And there are good reasons for wanting to keep your funds in fiat:</p>
+
+<ul>
+<li>The often cited volatility of Bitcoin. It is true and will likely remain true
+for some time to come.</li>
+<li>Familiarity with your local currency. You have a feeling for what things cost
+and a sense of stability, simply because everything around you is priced in
+that same currency. Your currency might fluctuate on the world markets, but
+your coffee at Starbucks still costs the same as yesterday - at least on most
+days.</li>
+<li>Easier accounting. This one is especially important for the merchant side.
+Conducting business relies a lot on proper accounting and even if you are the
+biggest Bitcoin fan, it might not be worth the trouble, to have to track a
+foreign currency and deal with things like gains and losses caused by exchange
+rate changes. Simply pretending that the customer paid you in your local
+currency and just used Bitcoin as a technical solution to do so, can simplify
+your bookkeeping and make it easier to get started accepting Bitcoins.
+(Bridgewalker would have eventually attempted to eat BitPay's lunch. ;-P )</li>
+<li>Separating the use of Bitcoin as an investment and the use of Bitcoin as a
+payment mechanism. Keep your bitcoins in cold storage and keep some fiat in
+your Bridgewalker account to spend on Bitcoin services, without affecting your
+Bitcoin holdings. The often requested "buy-as-you-spend" feature of Coinbase
+follows from the same motivation.</li>
+</ul>
+
+
+<p>In some ways, it might be, that Bridgewalker was simply too early and
+Bitcoin-based solutions will need to mature more, before there is a real demand
+for this type of service. I might try again at a later time. If I do, it will be
+without an exchange in the background though. It's simply too big of a failure
+point and also creates all sorts of legal challenges. Maybe projects like
+<a href="https://www.counterparty.co/">Counterparty</a> or
+<a href="https://www.ethereum.org/">Ethereum</a> will be ready by that time, to provide
+crypto-equivalents of USD and EUR, that track their real-world counter party
+through some kind of gambling/financial derivatives.</p>
+
+<p>Then the Bridgewalker client could be completely server-less and just use one or
+several blockchains to provide the same functionality. I would imagine, that the
+client would maintain a small amount of bitcoins as a buffer, to be able to
+quickly make transactions. But then move bitcoins from and to the buffer into
+cryptoUSD or cryptoEUR to keep the purchasing power pegged to those fiat
+currencies. The question is, whether this can be made cost-competitive, which
+depends on the amount of market spread, slippage, tracking errors and other
+sources of friction.</p>
+
+<p>By the way, Bridgewalker is
+<a href="/blog/2014/01/07/bridgewalker-open-source/">open source</a>,
+so if you feel like tackling any of this and want to reuse parts of
+Bridgewalker, feel free to do so!</p>
+
+<p>For the moment, I will be focusing on pure Bitcoin wallets again at
+<a href="https://www.hivewallet.com/">Hive</a>. Our Android wallet will be arriving shortly
+- keep an eye out for it! And who knows, maybe at some point Bridgewalker will
+be rising from its ashes. ;-) Thanks again for all your support!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1>
+      <a href="/blog/2014/01/07/bridgewalker-open-source/">
+        Bridgewalker is now open source
+      </a>
+    </h1>
+
+    <span class="post-date">07 Jan 2014</span>
+
+    <p>At <a href="http://www.hivewallet.com/">Hive</a> we have a strong commitment to open
+source. Today, we honor this commitment by open sourcing the Bridgewalker
+codebase. I am excited that this has been made possible by the <a href="/blog/2013/12/29/hive-acquisition/">Hive
+acquisition</a>
+and am very much looking forward to the new possibilities and projects that this
+might lead to down the line!</p>
+
+<p><img style="width:200px;margin:auto;" src="/blog/public/images/bridgewalker_screenshot_20140108.png" alt="Bridgewalker screenshot" /></p>
+
+<p>The meat of the Bridgewalker codebase can be found in these three repositories:</p>
+
+<ul>
+<li><a href="https://github.com/javgh/bridgewalker">https://github.com/javgh/bridgewalker</a> - the Bridgewalker server component</li>
+<li><a href="https://github.com/javgh/Bridgewalker-Android">https://github.com/javgh/Bridgewalker-Android</a> - the Bridgewalker Android
+client</li>
+<li><a href="https://github.com/javgh/bridgewalker-deployment">https://github.com/javgh/bridgewalker-deployment</a> - configuration files and
+an Ansible script to deploy Bridgewalker to a server</li>
+</ul>
+
+
+<p>Then there are a number of support libraries and tools which the Bridgewalker
+server depends on:</p>
+
+<ul>
+<li><a href="https://github.com/javgh/mtgoxapi">https://github.com/javgh/mtgoxapi</a> - Haskell library for communicating with
+Mt.Gox (also uploaded to
+<a href="http://hackage.haskell.org/package/mtgoxapi">Hackage</a>)</li>
+<li><a href="https://github.com/javgh/bitcoin-rpc">https://github.com/javgh/bitcoin-rpc</a> - Haskell library to communicate with
+the Satoshi Bitcoin daemon (also uploaded to
+<a href="http://hackage.haskell.org/package/bitcoin-rpc">Hackage</a>)</li>
+<li><a href="https://github.com/javgh/MtGoxCachingProxy">https://github.com/javgh/MtGoxCachingProxy</a> - proxy that can be placed in
+front of the Mt.Gox websocket API to add failure detection and history</li>
+<li><a href="https://github.com/javgh/watchdog">https://github.com/javgh/watchdog</a> - simple control structure for Haskell
+to re-try an action with exponential backoff (also uploaded to
+<a href="http://hackage.haskell.org/package/watchdog">Hackage</a>)</li>
+<li><a href="https://github.com/javgh/metricsd-client">https://github.com/javgh/metricsd-client</a> - Haskell client for the metrics
+aggregator Metricsd (also uploaded to
+<a href="http://hackage.haskell.org/package/metricsd-client">Hackage</a>)</li>
+</ul>
+
+
+<p>I'm afraid that the documentation is only rudimentary in many places. This was
+only a side project for me for a long time. A working Bridgewalker server also
+consists of quite a few moving parts, so getting it all set up is somewhat
+involved. But each repository contains a brief README file which should
+hopefully get you started. If you have any questions, I am happy to try to help
+out - just shoot me an email at <a href="mailto:jan@uos.de">jan@uos.de</a>.</p>
+
+<p>Happy coding!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1>
+      <a href="/blog/2014/01/01/bitcoin-nfc-point-of-sale/">
+        Using Bitcoin, NFC and Bluetooth to make a mobile euro payment in 15 seconds
+      </a>
+    </h1>
+
+    <span class="post-date">01 Jan 2014</span>
+
+    <p>Bridgewalker has always been about exploring the idea of using "Bitcoin, the
+network" solely as a payment mechanism, but avoiding "Bitcoin, the currency" and
+its volatility by exchanging in and out of local currencies before and after the
+payment takes place. Using Bitcoin in this way, it then becomes a technical
+solution similiar to the <a href="http://en.wikipedia.org/wiki/Automated_Clearing_House">ACH network</a>
+or credit card networks, in that it provides a payment network which allows the
+electronic transfer of funds denominated in fiat (e.g. euro or dollar). But a
+payment network which has no barrier of entry, as anyone can plug in, as long
+as they speak the Bitcoin protocol. This concept has also been described as
+Bitcoin being "money over IP" or an <a href="http://onbitcoin.com/2013/07/30/finding-business-model-opportunities-in-bitcoin-inside-bitcoins-nyc/">"IP address for
+money"</a>.</p>
+
+<h3>Point of sale demo</h3>
+
+<p>The following video is a technology demo of how Bitcoin might be used in this
+manner in a point of sale setting, where a customer wants to pay contactless
+with his smartphone. To set the stage: In this example the merchant is using a
+laptop to initiate the process. She enters the price of the product - let's say
+2 euros - and the software uses the current Bitcoin exchange rate to calculate a
+Bitcoin amount, which is then shown to the customer on an external screen
+together with payment instructions. The customer holds his phone close to the
+NFC pad and receives the payment details. In this case he uses the Bridgewalker
+app, where he maintains a euro balance, which can be converted to bitcoins for
+the purpose of transfer at a moment's notice. The app picks up the payment
+request and - after final confirmation by the user - sends out a Bitcoin
+transaction. To increase speed and especially reliability a copy of the Bitcoin
+transaction is also sent back to the merchant via Bluetooth. The payment is now
+complete (caveat: the risk of double spending - see discussion below). In the
+video the merchant simply receives the bitcoins via Bitcoin-Qt. But one could
+imagine to plug in a merchant solution like BitPay or Coinbase here, which would
+then convert back to euros to complete the cycle. Here is the video:</p>
+
+<div style="text-align:center">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/mguRpvf3aMc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<h3>Technical details</h3>
+
+<p>First off: If you do not care about all the back and forth with traditional
+currencies, then this solution can of course also be used in a Bitcoin-only
+manner. It is based on work that Andreas Schildbach already did for the Android
+Bitcoin wallet (great stuff - thanks!) and is fully compatible with that. So the
+Schildbach wallet will pick up the NFC payment request and also the transaction
+transfer over Bluetooth is compatible. The code for the point of sale terminal
+is open source and you can find it
+<a href="https://github.com/javgh/greenaddress-pos-tools">over on GitHub</a>. The
+repository also has some notes about the recommended NFC hardware.</p>
+
+<h3>Currency conversions and fees</h3>
+
+<p>All this currency conversion back and forth is terrible convoluted and must be
+pretty expensive, you might be thinking at this point. Why not just transfer
+euros directly, if that is the goal? To expand on what I wrote in the
+introduction: The problem with transferring euros electronically is the fact,
+that there is no such thing as a digital euro. You can only have digital IOUs
+for euros - that is promises from someone, that they will pay you a euro later -
+and you can then transfer those digital IOUs. That means you will always have to
+be very careful about whose IOUs you accept, so that you can be sure that you
+are getting paid in the end.</p>
+
+<p>Bitcoin, on the other hand, stands for itself. It is a digital commodity that
+commands a market price and it therefore does not matter from whom you are
+receiving those bitcoins. It is the digital equivalent of "cash is king".
+Building a payment network with Bitcoin at the core allows for a much more open
+approach where everyone is free to connect to and become a part of that network.</p>
+
+<p>To make it cost-competitive, the "on- and off-ramps" to the Bitcoin network, the
+exchanges, need to be efficient. That means low fees on one hand, and also tight
+spreads - the difference between the highest buy offer and the lowest sell offer
+- on the other hand. In the case of Bridgewalker, for example, this currently
+amounts to a fee of around 1.5 % for a "round trip". So sending out 100 EUR in
+the form of bitcoins and then depositing them again, will typically leave you
+with 98.50 EUR (although transfers between Bridgewalker users are internal and
+free, by the way). At the moment Bridgewalker uses Mt.Gox as its exchange
+platform. Then you have to factor in the cost for the user to get bitcoins in
+the first place, to fund his Bridgewalker account, and that might be another
+percent or two. On the merchant side very competitive pricing options are
+available from both BitPay and Coinbase. All in all, I think you can stay under
+3 % even today, to pick a number that is typical for credit card fees, and there
+is quite a bit of room to push this down further as Bitcoin exchanges mature.</p>
+
+<p>Lastly I want to point out, that Bridgewalker is just a technical prototype and
+I therefore opted to only allow funding of accounts via Bitcoin. This creates
+additional points of currency exchange, but frees me from interfacing with the
+traditional banking system and instead allows me to focus on experimenting with
+the user interface. An institution that would undertake a direct integration
+with, for example, the ACH network should be able to reduce fees even more.</p>
+
+<p>In fact, a highly upvoted <a href="http://www.reddit.com/r/Bitcoin/comments/1stdek/with_recent_news_that_coinbase_acquired_25m_in/">feature
+request</a>
+for Coinbase to implement a "buy-as-you-spend" feature would be essentially just
+that. It would allow a user to spend bitcoins via the Coinbase app and have it
+replenished by pulling fiat from their bank account. This is essentially just a
+mechanism to spend fiat from their bank account via Bitcoin, which brings us
+back to the idea of using Bitcoin solely as a payment mechanism.</p>
+
+<h3>Double spending</h3>
+
+<p>Discussing the topic of double spend risk management really requires a whole
+blog post or more like a series of them in itself, and this post is already
+getting too long. But just a few comments here: The common wisdom so far has
+been, that for small in person payments the risk of accepting zero-confirmation
+transactions is minimal.  I agree that this is probably true. Although it is
+only true, if the merchant receives the transaction via the Bitcoin network and
+therefore has some indication that it has been broadcasted widely.</p>
+
+<p>In this setting the merchant receives the transaction directly from the
+customer, which makes it much easier for the customer to trick the merchant, by
+sending a conflicting transaction simultaneously to the rest of the Bitcoin
+network. So this is still one of the pieces missing from this solution, before
+it is ready for real world usage. The merchant should wait a few extra seconds
+(unfortunately adding extra delay) and then check with a number of
+highly connected Bitcoin nodes whether there are any known double spends
+(feature request for Blockchain.info: return the double spend info that you are
+collecting already via your JSON api. It would be great if the data returned for
+a transaction would have an extra field called "known_double_spends" or
+"known_conflicts" which would be simply "true" or "false" or maybe a list of
+conflicting transaction ids). This would, I believe, be a reasonably secure
+heuristic for small amounts.</p>
+
+<p>In general though, receiving the transaction directly from the customer will be
+the only solution going forward. Relying on a gossip-style peer-to-peer network,
+as Bitcoin is, for timely delivery of transactions will simply fail too often
+(for some anecdotal evidence of this, see for example <a href="http://www.reddit.com/r/Bitcoin/comments/1ly1h3/bitcoin_is_too_slow_for_in_person_transactions/">this
+thread</a>).</p>
+
+<p>As an aside: The demo above employs <a href="https://en.bitcoin.it/wiki/Green_address">green
+addresses</a>. Bridgewalker transactions
+can be recognized by their use of coins from 1MAxx46Dp3tFw933PxPwEYYGCpxYda2pyH
+which is why the backend displays "Verified by Bridgewalker" after receiving the
+transaction. So in this case the merchant knows where to complain, if anything
+murky should happen with the transaction afterwards.</p>
+
+<p>Green addresses are a hack - I said as much, when I proposed them back in 2011 -
+and now that we have <a href="https://en.bitcoin.it/wiki/BIP_0070">BIP 70</a>, the payment
+protocol proposal, this would probably be a better outlet to integrate a similar
+mechanism.</p>
+
+<h3>Future work</h3>
+
+<p>All of this should probably be ported to use the payment protocol, which should
+allow to add some other niceties as well, like displaying some meta information
+about the payment directly on the client side (what is this for? who is
+requesting it? have they signed the request?). Then of course the mentioned
+double spend detection heuristic needs to be added. It would also be helpful to
+replace the use of Bitcoin-Qt with a more lightweight client, to be able to run
+the point of sale terminal on something like a Raspberry Pi.</p>
+
+<p><a href="https://github.com/javgh/greenaddress-pos-tools">The code</a> is open source -
+patches are always welcome! :-)</p>
+
+  </div>
+  
+  <div class="post">
+    <h1>
+      <a href="/blog/2013/12/29/hive-acquisition/">
+        Bridgewalker acquired by Hive
+      </a>
+    </h1>
+
+    <span class="post-date">29 Dec 2013</span>
+
+    <p>Welcome to the Bridgewalker blog! The news is already a couple of weeks old, but
+I would like to use this first post to report that Bridgewalker has been
+acquired be <a href="http://www.grabhive.com/">Hive</a>!</p>
+
+<p>I was lucky to meet Wendell Davis at the Amsterdam Bitcoin conference in
+September and we had some great conversations about Bitcoin wallets and the
+Bitcoin ecosystem in general. So when he later approached me with the idea of
+Hive acquiring Bridgewalker and me joining the team, it did not take much
+convincing for me to decide that this was a great match and opportunity.</p>
+
+<p>I am very excited about joining the Hive team and looking forward to building
+some great products. I will be focusing initally on helping out with the Android
+port of Hive, which will put Bridgewalker a little bit on the back burner for
+the time being. But it will continue to operate and I am looking forward to
+explore future possibilites of integerating it with the rest of Hive's
+offerings.</p>
+
+<p>Watch this space for some cool additional announcements resulting from the
+acquisition!</p>
+
+<p>Here is the <a href="https://bitcointalk.org/index.php?topic=334383.0">original
+announcement</a>.</p>
+
+  </div>
+  
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  
+    <span class="next">Older</span>
+  
+  
+    <span class="previous">Newer</span>
+  
+</div>
+
+    </div>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39518733-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>
